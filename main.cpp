@@ -55,10 +55,17 @@ public:
     void fillTriangle(int a, int b, int c, int d, int e, int f){
         ps << a << " " << b << " moveto " << c << " " << d << " lineto " << e << " " << f << " lineto closepath\n" << rf << " " << gf << " " << bf << " setrgbcolor\n" << "fill\n";
     }
+
+    void grid(int a, int b, int c, int d, int e, int f){
+        ps << "/vline {" << a << " " << d << " moveto " << a << " " << f << " lineto stroke} def\n" << "gasave\n" << "vline\n";
+        ps << (c-a)/b << " {" << b << " 0 translate vline} repeat\n" << "grestore\n";
+        ps << "/hline {" << a << " " << d << " moveto " << c << " " << d << " lineto stroke} def\n" << "gasave\n" << "vline\n";
+        ps << (f-d)/e << " {" << 0 << " e translate hline} repeat\n" << "grestore\n";
+    }
 };
 
 int main() {
-    Postscript p("/Users/nines/CLionProjects/postscript/text.cpp");
+    Postscript p("/Users/nines/CLionProjects/ttt/test.txt");
 
     p.line(0,0, 300,400);  // 0 0 moveto 300 400 lineto stroke
     int r = 50, g = 255, b = 50;
@@ -68,8 +75,8 @@ int main() {
     p.setStrokeColor(255, 50, 50);
     p.drawTriangle(50, 50, 100, 100, 50, 30);
     p.fillTriangle(100, 100, 150, 150, 50, 10);
-    //p.drawCircle(150,100,50); // x y 0 360 r arc stroke
-    //p.text(80, 80, "Welcome, to my beloved city"); // look it up  setfont  (ABC) show
+    p.drawCircle(150,100,50); // x y 0 360 r arc stroke
+    p.text(80, 80, "Welcome, to my beloved city"); // look it up  setfont  (ABC) show
 
-    //p.grid(300, 50, 500, 400, 50, 700);
+    p.grid(300, 50, 500, 400, 50, 700);
 }
