@@ -5,9 +5,14 @@ using namespace std;
 class Postscript {
 private:
     ofstream ps;
+<<<<<<< HEAD
     float rs, gs, bs;
     float rf, gf, bf;
     char fillColor[64];
+=======
+    int rs, gs, bs;
+    int rf, gf, bf;
+>>>>>>> e7cdb265fcd56120cf78da2de40f29391f08d7b8
 
 public:
     Postscript(const char *str) {
