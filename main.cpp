@@ -7,7 +7,6 @@ private:
     ofstream ps;
     int rs, gs, bs;
     int rf, gf, bf;
-    char fillColor[64];
 
 public:
     Postscript(const char *str) {
