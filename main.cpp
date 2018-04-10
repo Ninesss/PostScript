@@ -5,11 +5,9 @@ using namespace std;
 class Postscript {
 private:
     ofstream ps;
-
     float rs, gs, bs;
     float rf, gf, bf;
-    char fillColor[64];
-
+    
 public:
     Postscript(const char *str) {
         ps.open(str);
