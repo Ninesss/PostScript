@@ -62,6 +62,15 @@ public:
         ps << "/hline {" << a << " " << d << " moveto " << c << " " << d << " lineto stroke} def\n" << "gasave\n" << "vline\n";
         ps << (f-d)/e << " {" << 0 << " e translate hline} repeat\n" << "grestore\n";
     }
+    void drawCircle(float x, float y, float r){
+        ps<<x<<" "<<y<<" "<<r<<" "<<"0 360 arc \n"<<rs<<" "<<gs<<" "<<bs<<" "<<"setrgbcolor \n"<<"stroke \n";
+    }
+    void fillCircle(float x, float y, float r){
+        ps<<x<<" "<<y<<" "<<r<<" "<<"0 360 arc \n"<<rf<<" "<<gf<<" "<<bf<<" "<<"setrgbcolor \n"<<"fill \n";
+    }
+    void text(float x, float y, const char* str){
+        ps<<"/Times-Roman findfont 12 scalefont setfont newpath"<<x<<" "<<y<<" "<<"moveto"<<"("<<str<<")"<<rs<<" "<<gs<<" "<<bs<<" "<<"setrgbcolor \n"<<"show \n";
+    }
 };
 
 int main() {
