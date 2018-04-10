@@ -24,39 +24,39 @@ public:
         ps.close();
     }
 
-    void line(int a, int b, int c, int d){
+    void line(float a, float b, float c, float d){
         ps << a << " " << b << " moveto " << c << " " << d << " lineto stroke\n";
     }
 
-    void drawRect(int a, int b, int c, int d){
+    void drawRect(float a, float b, float c, float d){
         ps << a << " " << b << " moveto " << a+c << " " << b << " lineto " << a+c << " " << b+d << " lineto " << a << " " << b+d << " lineto closepath\n" << rs << " " << gs << " " << bs << " setrgbcolor\n" << "stroke\n";
     }
 
-    void fillRect(int a, int b, int c, int d){
+    void fillRect(float a, float b, float c, float d){
         ps << a << " " << b << " moveto " << a+c << " " << b << " lineto " << a+c << " " << b+d << " lineto " << a << " " << b+d << " lineto closepath\n" << rf << " " << gf << " " << bf << " setrgbcolor\n" << "fill\n";
     }
 
-    void setFillColor(int r, int g, int b){
+    void setFillColor(float r, float g, float b){
         rf = r;
         gf = g;
         bf = b;
     }
 
-    void setStrokeColor(int r, int g, int b){
+    void setStrokeColor(float r, float g, float b){
         rs = r;
         gs = g;
         bs = b;
     }
 
-    void drawTriangle(int a, int b, int c, int d, int e, int f){
+    void drawTriangle(float a, float b, float c, float d, float e, float f){
         ps << a << " " << b << " moveto " << c << " " << d << " lineto " << e << " " << f << " lineto closepath\n" << rs << " " << gs << " " << bs << " setrgbcolor\n" << "stroke\n";
     }
 
-    void fillTriangle(int a, int b, int c, int d, int e, int f){
+    void fillTriangle(float a, float b, float c, float d, float e, float f){
         ps << a << " " << b << " moveto " << c << " " << d << " lineto " << e << " " << f << " lineto closepath\n" << rf << " " << gf << " " << bf << " setrgbcolor\n" << "fill\n";
     }
 
-    void grid(int a, int b, int c, int d, int e, int f){
+    void grid(float a, float b, float c, float d, float e, float f){
         ps << "/vline {" << a << " " << d << " moveto " << a << " " << f << " lineto stroke} def\n" << "gasave\n" << "vline\n";
         ps << (c-a)/b << " {" << b << " 0 translate vline} repeat\n" << "grestore\n";
         ps << "/hline {" << a << " " << d << " moveto " << c << " " << d << " lineto stroke} def\n" << "gasave\n" << "vline\n";
