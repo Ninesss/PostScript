@@ -5,8 +5,8 @@ using namespace std;
 class Postscript {
 private:
     ofstream ps;
-    int rs, gs, bs;
-    int rf, gf, bf;
+    float rs, gs, bs;
+    float rf, gf, bf;
     char fillColor[64];
 
 public:
@@ -37,15 +37,15 @@ public:
     }
 
     void setFillColor(float r, float g, float b){
-        rf = r;
-        gf = g;
-        bf = b;
+        rf = r/255.0;
+        gf = g/255.0;
+        bf = b/255.0;
     }
 
     void setStrokeColor(float r, float g, float b){
-        rs = r;
-        gs = g;
-        bs = b;
+        rs = r/255.0;
+        gs = g/255.0;
+        bs = b/255.0;
     }
 
     void drawTriangle(float a, float b, float c, float d, float e, float f){
@@ -74,7 +74,7 @@ public:
 };
 
 int main() {
-    Postscript p("/Users/nines/CLionProjects/ttt/test.txt");
+    Postscript p("test.ps");
 
     p.line(0,0, 300,400);  // 0 0 moveto 300 400 lineto stroke
     int r = 50, g = 255, b = 50;
